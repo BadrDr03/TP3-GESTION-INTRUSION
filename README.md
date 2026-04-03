@@ -42,5 +42,21 @@ En utilisant l'outil `searchsploit` ou en consultant des bases de données comme
 
 ---
 
+## 4. Phase d'Exploitation (Accès Root)
+Après avoir configuré l'exploit `vsftpd_234_backdoor`, nous avons lancé l'attaque contre la cible.
+
+### Exécution des commandes :
+* **Commande :** `exploit`
+* **Résultat :** Ouverture d'une session shell (`Command shell session 1 opened`).
+
+### Vérification des privilèges :
+Une fois connecté au serveur, nous avons vérifié notre identité avec la commande `whoami`.
+* **Résultat obtenu :** `root`
+* **Signification :** Le système nous reconnaît comme l'administrateur suprême du serveur. À ce stade, le serveur est totalement compromis.
+
+### Pourquoi est-ce une preuve de réussite ?
+Le fait d'obtenir `uid=0(root)` prouve que la faille de la version 2.3.4 de vsftpd permet à n'importe quel attaquant de prendre le contrôle total du serveur sans même connaître de mot de passe valide.
+
+![Import OVA](https://github.com/user-attachments/assets/4b2c7f19-3896-4bd2-8d45-571be66d0e06)
 
 
