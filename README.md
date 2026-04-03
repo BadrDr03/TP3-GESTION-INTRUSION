@@ -59,4 +59,23 @@ Le fait d'obtenir `uid=0(root)` prouve que la faille de la version 2.3.4 de vsft
 
 ![Import OVA](https://github.com/user-attachments/assets/4b2c7f19-3896-4bd2-8d45-571be66d0e06)
 
+---
+
+## 5. Énumération Web (Discovery)
+Une fois l'accès système compromis, nous avons effectué une recherche de répertoires cachés sur le serveur Web pour identifier des vecteurs d'attaque supplémentaires.
+
+### Outil utilisé : DIRB
+DIRB est un scanner de contenu web qui utilise une attaque par dictionnaire pour trouver des répertoires et fichiers non indexés.
+
+### Résultats obtenus :
+L'analyse a révélé plusieurs répertoires sensibles :
+* **`/phpmyadmin/`** : Interface de gestion de base de données. C'est une découverte critique car elle permet potentiellement d'accéder aux données confidentielles (utilisateurs, commandes, etc.).
+* **`/server-status`** : Fournit des informations sur l'état et la configuration du serveur Apache.
+* **`/javascript/`** : Répertoire contenant des scripts pouvant être analysés pour trouver d'autres failles côté client.
+
+### Pourquoi cette étape est-elle importante ?
+Même avec un accès root, l'énumération web permet de comprendre l'architecture de l'application hébergée et de localiser rapidement les données de valeur (Crown Jewels) de l'entreprise.
+
+![Import OVA](https://github.com/user-attachments/assets/1b02f321-a8d4-483b-aadf-097663db10f9)
+
 
