@@ -78,4 +78,21 @@ Même avec un accès root, l'énumération web permet de comprendre l'architectu
 
 ![Import OVA](https://github.com/user-attachments/assets/1b02f321-a8d4-483b-aadf-097663db10f9)
 
+---
+
+---
+
+## 6. Plan d'Actions et Recommandations
+Suite à notre audit, nous préconisons les mesures suivantes pour sécuriser l'infrastructure :
+
+### A. Mesures Immédiates (Critiques)
+1. **Mise à jour du service FTP :** Désinstaller `vsftpd 2.3.4` et installer la version la plus récente (ex: 3.0.5) pour supprimer la porte dérobée.
+2. **Désactivation des services non sécurisés :** Arrêter le service **Telnet** (Port 23) et utiliser exclusivement **SSH** pour l'administration à distance.
+
+### B. Sécurisation Applicative
+1. **Protection de phpMyAdmin :** Masquer l'URL par défaut et ajouter une authentification au niveau du serveur web (type `.htaccess`).
+2. **Mise en place de HTTPS :** Installer un certificat SSL/TLS et forcer la redirection du trafic HTTP (port 80) vers HTTPS (port 443).
+
+## Synthèse Finale
+Ce TP nous a permis de simuler un cycle complet d'intrusion : de la reconnaissance à l'exploitation. La vulnérabilité critique découverte dans le service FTP montre l'importance capitale de maintenir ses systèmes à jour. Sans une politique de mise à jour rigoureuse, un serveur peut être entièrement compromis en quelques minutes.
 
